@@ -60,8 +60,8 @@ void encrypt() {
 	printf("Enter a number shift [0-255]:     -> ");
 	scanf("%u", &shift);
 	
-	unsigned int unary_input = ~input & 0xFF;
-	unsigned int encryption_output = (key ^ unary_input) & 0xFF;
+	unsigned int encryption_output = ~input & 0xFF;
+	encryption_output ^= key & 0xFF;
 	
 	for(int i = 0; i < shift; i++) {
 		if(encryption_output > 128) {
